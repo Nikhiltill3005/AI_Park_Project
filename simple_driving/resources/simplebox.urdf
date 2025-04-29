@@ -1,0 +1,37 @@
+<?xml version="1.0"?> 
+<robot name="simplegoal">
+    <!-- Colors --> 
+    <material name="red">
+        <color rgba="0.925 0 0 1"/>
+    </material>
+
+    <!-- Goal -->
+    <link name="base_link">
+        <!-- Visual -->
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0.5"/> <!-- Box sits on the ground -->
+            <geometry>
+                <box size="2 0.5 0.5"/> <!-- Length=1m, Width=2m, Height=1m -->
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <!-- Collision -->
+        <collision> 
+            <origin rpy="0 0 0" xyz="0 0 0.5"/> <!-- Same position as visual -->
+            <geometry> 
+                <box size="2 0.5 0.5"/> <!-- Same size as visual -->
+            </geometry>
+        </collision>
+
+        <!-- Inertial -->
+        <inertial> 
+            <origin xyz="0 0 0.5"/> <!-- Center of mass at the center of the box -->
+            <mass value="1.0"/> <!-- Example mass of 1kg -->
+            <inertia 
+                ixx="0.333" ixy="0.0" ixz="0.0" 
+                iyy="0.083" iyz="0.0" 
+                izz="0.417"/>
+        </inertial>
+    </link>
+</robot>
